@@ -1,13 +1,13 @@
 import os
 
-# ✅ Volume Control
+#  Volume Control
 def increase_volume():
     os.system(r"C:\nircmd-x64\nircmd.exe changesysvolume 5000")
 
 def decrease_volume():
     os.system(r"C:\nircmd-x64\nircmd.exe changesysvolume -5000")
     
-# ✅ Brightness Control
+# Brightness Control
 def increase_brightness():
     try:
         import screen_brightness_control as sbc
