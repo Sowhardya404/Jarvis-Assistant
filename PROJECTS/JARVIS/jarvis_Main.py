@@ -288,3 +288,13 @@ if __name__ == "__main__":
     speak("Initializing Jarvis...")
     while True:
         listen_for_command()
+        # After wake word, stay in conversation until "stop" is said
+        while True:
+            command = listen()
+            if command is None:
+                continue
+            if any(word in command for word in ["stop", "exit", "shutdown", "jarvis stop"]):
+                speak("Okay, stopping conversation. Say 'Jarvis' to wake me again.")
+                break  # Go back to wake word mode
+            else:
+                processCommand(command)
